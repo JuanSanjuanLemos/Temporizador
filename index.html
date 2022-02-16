@@ -11,16 +11,22 @@
 <body>
     <div class="wrapper-timer">
         <span class="main-time">00:00:00</span>
-            <h2 class="set-time">Digite o tempo desejado:</h2>
-            <div>
-                <label for="set-hour">Hora(s)</label>
-                <input type="number" name="set-hour" class="main-input" id="set-hour">            
-                <label for="set-minute">Minuto(s)</label>
-                <input type="number" name="set-minute" class="main-input" id="set-minute">
-                <label for="set-second">Segundo(s)</label>
-                <input type="number" name="set-second" class="main-input" id="set-second">                
+            <h2 class="set-time">Digite o tempo desejado</h2>
+            <div class="wrapper-inputs">
+                <div>
+                    <label for="set-hour">Hora(s):</label>
+                    <input type="number" name="set-hour" class="main-input" id="set-hour">            
+                </div>
+                <div>
+                    <label for="set-minute">Minuto(s):</label>
+                    <input type="number" name="set-minute" class="main-input" id="set-minute">
+                </div>
+                <div>
+                    <label for="set-second">Segundo(s):</label>
+                    <input type="number" name="set-second" class="main-input" id="set-second">
+                </div>             
             </div>
-            <input type="button" value="Iniciar">
+            <input type="button" class="main-button" value="Iniciar">
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,5 +1,26 @@
+body{
+    background-color: rgba(7, 7, 7, 0.796);
+    color: white;
+}
 .main-time{
     font-size: 100px;
+    margin-bottom: 30px;
+}
+.main-button{
+    width: 100px;
+    line-height: 2;
+    margin-top: 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(71, 71, 158);
+}
+
+.main-button:hover{
+    background-color: rgb(57, 57, 163);
+    transform: scale(1.1);
+    transition: transform 100ms linear; 
+    cursor: pointer;
 }
 
 .main-input{
@@ -11,4 +32,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.wrapper-inputs{
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
 }
