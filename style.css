@@ -1,0 +1,14 @@
+.main-time{
+    font-size: 100px;
+}
+
+.main-input{
+    width: 40px;
+}
+
+.wrapper-timer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

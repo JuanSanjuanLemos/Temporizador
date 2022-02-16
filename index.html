@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temporizador</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="wrapper-timer">
+        <span class="main-time">00:00:00</span>
+            <h2 class="set-time">Digite o tempo desejado:</h2>
+            <div>
+                <label for="set-hour">Hora(s)</label>
+                <input type="number" name="set-hour" class="main-input" id="set-hour">            
+                <label for="set-minute">Minuto(s)</label>
+                <input type="number" name="set-minute" class="main-input" id="set-minute">
+                <label for="set-second">Segundo(s)</label>
+                <input type="number" name="set-second" class="main-input" id="set-second">                
+            </div>
+            <input type="button" value="Iniciar">
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
