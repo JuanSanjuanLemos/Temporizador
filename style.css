@@ -16,6 +16,25 @@ body{
     background-color: rgb(71, 71, 158);
 }
 
+.main-button.-pause{
+    background-color: rgb(190, 16, 16);
+}
+.main-button.-pause:hover{
+    background-color: rgb(151, 4, 4);
+}
+
+.main-button.-restart{
+    background-color: rgb(16, 190, 117);
+}
+.main-button.-restart:hover{
+    background-color: rgb(9, 133, 81);
+}
+
+.wrapper-buttons{
+    display: flex;
+    gap: 10px;
+}
+
 .main-button:hover{
     background-color: rgb(57, 57, 163);
     transform: scale(1.1);
