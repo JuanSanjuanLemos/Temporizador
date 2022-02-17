@@ -1,3 +1,4 @@
+//corrigir bug de pegar o tempo do primeiro setInterval
 const buttonInite = document.getElementById("inite");
 const buttonPause = document.getElementById("pause")
 let divTime = document.querySelector(".main-time");
@@ -7,8 +8,7 @@ buttonInite.addEventListener("click",function(){
     let minute = getMinute();
     let second = getSecond();
     mySetInterval(hour,minute,second);
-    buttonInite.disabled = true;
-    buttonPause.disabled = false;
+    buttonPause.style.display = "block"
 
 });
 
@@ -18,8 +18,9 @@ function writeTime(hour,minute,second){
 }
 
 function mySetInterval(hour,minute,second){
+    let mySetInterval;
     writeTime(hour,minute,second);
-    let mySetInterval = 
+    mySetInterval = 
             setInterval(() => {
             second --;
             if(second<0){
@@ -32,43 +33,62 @@ function mySetInterval(hour,minute,second){
             }
             if(second === 0 && minute===0 && hour === 0){
                 clearInterval(mySetInterval);
-                buttonPause.disabled = true;
+                
             }
 
             let timeString = addZero(hour,minute,second);
             return divTime.innerText = `${timeString[0]}:${timeString[1]}:${timeString[2]}`;         
         }, 1000);
 
-    buttonPause.addEventListener("click",function(){
-        buttonPause.classList.toggle("resume");        
+    buttonPause.addEventListener("click",function(){ 
+        buttonPause.classList.toggle("resume"); 
         if(buttonPause.classList.contains("resume")){
-            buttonPause.style.backgroundColor = "rgb(16, 190, 117)";
-            buttonPause.value = "Retormar";
-            clearInterval(mySetInterval);
+            pauseTimer(mySetInterval);
+            return console.log("pausou");
         }else{
-            buttonPause.style.backgroundColor = "rgb(190, 16, 16)";
-            buttonPause.value = "Pausar";
-            let mySetInterval=
-            setInterval(() => {
-                second --;
-                if(second<0){
-                    minute--;
-                    second=59;
-                }
-                if(minute<0){
-                    hour--;
-                    minute=59;
-                }
-                if(second === 0 && minute===0 && hour === 0){
-                    clearInterval(mySetInterval);
-                    buttonPause.disabled = true;
-                }
-    
-                let timeString = addZero(hour,minute,second);
-                return divTime.innerText = `${timeString[0]}:${timeString[1]}:${timeString[2]}`;         
-            }, 1000);
+            console.log("RETOMOU")
+            resumeTimer(hour,minute,second,mySetInterval);
         }
+        console.log("tá no button")
     })
+}
+
+function resumeTimer(hour,minute,second,mySetInterval){
+
+    buttonPause.style.backgroundColor = "rgb(190, 16, 16)";
+    buttonPause.value = "Pausar";
+    console.log("fora do interval");
+    mySetInterval =
+    setInterval(() => {
+        console.log("tá no interval")
+        second --;
+        if(second<0){
+            minute--;
+            second=59;
+        }
+        if(minute<0){
+            hour--;
+            minute=59;
+        }
+        if(second === 0 && minute===0 && hour === 0){
+            clearInterval(mySetInterval);
+            buttonPause.style.display="none";
+        }
+
+        let timeString = addZero(hour,minute,second);
+
+        divTime.innerText = `${timeString[0]}:${timeString[1]}:${timeString[2]}`;
+        buttonPause.addEventListener("click",function(){
+            console.log("tá na function");
+            pauseTimer(mySetInterval);
+        })  
+    }, 1000);          
+}
+
+function pauseTimer(mySetInterval){
+    buttonPause.style.backgroundColor = "rgb(16, 190, 117)";
+    buttonPause.value = "Retormar";
+    clearInterval(mySetInterval);
 }
 
 function addZero(hour,minute,second){

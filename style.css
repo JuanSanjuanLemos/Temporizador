@@ -18,6 +18,7 @@ body{
 
 .main-button.-pause{
     background-color: rgb(190, 16, 16);
+    display: none;
 }
 .main-button.-pause:hover{
     background-color: rgb(151, 4, 4);
